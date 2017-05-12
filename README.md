@@ -1,3 +1,5 @@
+# Spring Async
+
 This project is a simple Spring Boot application that demonstrates using Spring's `DeferredResult` combined with
 any number of `CompletableFuture` to create an asynchronous REST controller. To use:
 
