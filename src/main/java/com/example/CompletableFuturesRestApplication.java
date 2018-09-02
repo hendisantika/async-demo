@@ -2,7 +2,11 @@ package com.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.async.DeferredResult;
 
 import java.util.List;
@@ -14,11 +18,12 @@ import static java.util.stream.Collectors.toList;
 
 @RestController("/async")
 @SpringBootApplication
+@EnableAsync
 public class CompletableFuturesRestApplication {
 
   // exercise using curl http://localhost:8080/async?input=lorem,ipsum,dolor,sit,amet
   @RequestMapping(method = RequestMethod.GET)
-  public DeferredResult<String> get(@RequestParam List<String> input) throws Exception {
+  public DeferredResult<String> get(@RequestParam List<String> input) {
     return concatenateAsync(input);
   }
 
