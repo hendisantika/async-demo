@@ -1,3 +1,5 @@
+package com.example.service;
+
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,6 +18,7 @@ import static org.junit.Assert.assertTrue;
 public class TestAsyncService {
     @Autowired
     private AsyncService asyncService;
+
     private static CountDownLatch latch = new CountDownLatch(1);
 
     //run after every testcase, wait for at most 2 seconds and then exit.
